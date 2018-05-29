@@ -73,5 +73,5 @@ def render_upload(upload, template_path="adminfiles/render/", **options):
                      "default"]
     tpl = template.loader.select_template(
         ["%s.html" % join(template_path, p) for p in templates])
-    return tpl.render(template.Context({'upload': upload,
-                                        'options': options}))
+    return tpl.render({'upload': upload,
+                                        'options': options})
