@@ -59,5 +59,8 @@ class FilePickerAdmin(admin.ModelAdmin):
 
     class Media:
         js = [JQUERY_URL, 'adminfiles/model.js']
+        css = {
+            "screen": ["adminfiles/model.css"]
+        }
 
 admin.site.register(FileUpload, FileUploadAdmin)

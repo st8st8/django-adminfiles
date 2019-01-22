@@ -1,0 +1,9 @@
+
+.adminfiles-gallery {
+    box-sizing: border-box;
+    border:1px solid #444; 
+    display: block; 
+    margin-left:170px; 
+    width: calc(100% - 170px); 
+    height:210px;
+}
