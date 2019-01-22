@@ -1,12 +1,12 @@
+
 function insertAtCursor(myField, myValue) {
-    //IE support
-    if (document.selection) {
-        myField.focus();
-        sel = document.selection.createRange();
-        sel.text = myValue;
+    if(parent.tinymce && parent.tinymce.get(myField.id) )
+    {
+        console.info("Inserting tinyMCE for " + myField.id);
+        parent.tinymce.get(myField.id).insertContent(myValue);
+        return;
     }
-    //MOZILLA/NETSCAPE support
-    else if (myField.selectionStart || myField.selectionStart == '0') {
+    if (myField.selectionStart || myField.selectionStart == '0') {
         var startPos = myField.selectionStart;
         var endPos = myField.selectionEnd;
         myField.value = myField.value.substring(0, startPos)
