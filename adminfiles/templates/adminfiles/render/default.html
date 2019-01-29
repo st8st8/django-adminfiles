@@ -1,5 +1,10 @@
+{% load static %}
 {% spaceless %}
-<a href="{{ upload.upload.url }}" class="{{ options.class }}">
-{% if options.title %}{{ options.title }}{% else %}{{ upload.title }}{% endif %}
-</a>
+{% if upload.file_exists %}
+    <a href="{{ upload.upload.url }}" class="{{ options.class }}">
+    {% if options.title %}{{ options.title }}{% else %}{{ upload.title }}{% endif %}
+    </a>
+{% else %}
+    <img src="{% static "adminfiles/does-not-exist.png" %}" />
+{% endif %}
 {% endspaceless %}

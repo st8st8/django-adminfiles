@@ -61,10 +61,16 @@ class FileUpload(models.Model):
         return self._dimensions_cache
     
     def width(self):
-        return self._get_dimensions()[0]
+        try:
+            return self._get_dimensions()[0]
+        except IOError:
+            pass
     
     def height(self):
-        return self._get_dimensions()[1]
+        try:
+            return self._get_dimensions()[1]
+        except IOError:
+            pass
     
     def save(self, *args, **kwargs):
         try:
@@ -98,6 +104,14 @@ class FileUpload(models.Model):
             return None
         return ('http://www.stdicon.com/%s/%s?size=64'
                 % (settings.ADMINFILES_STDICON_SET, self.mime_type()))
+    
+    def file_exists(self):
+        return os.path.isfile(
+            os.path.join(
+                django_settings.MEDIA_ROOT,
+                self.upload.name
+                ))
+            
 
 
 

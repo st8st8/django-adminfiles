@@ -1,3 +1,8 @@
+{% load static %}
 {% spaceless %}
-<img src="{{ upload.upload.url }}" width="{{ upload.width }}" height="{{ upload.height }}" class="{{ options.class }}" alt="{% if options.alt %}{{ options.alt }}{% else %}{{ upload.title }}{% endif %}" />
+{% if upload.file_exists %}
+    <img src="{{ upload.upload.url }}" width="{{ upload.width }}" height="{{ upload.height }}" class="{{ options.class }}" alt="{% if options.alt %}{{ options.alt }}{% else %}{{ upload.title }}{% endif %}" />
+{% else %}
+    <img src="{% static "adminfiles/does-not-exist.png" %}" />
+{% endif %}
 {% endspaceless %}
