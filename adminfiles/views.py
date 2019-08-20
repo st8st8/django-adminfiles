@@ -2,7 +2,7 @@ import urllib
 
 from django.http import HttpResponse
 from django.conf import settings as django_settings
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic import TemplateView
 

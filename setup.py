@@ -8,7 +8,7 @@ long_description = (open('README.rst').read() +
 
 setup(
     name='django-adminfiles',
-    version='1.1.0',
+    version='1.2.0',
     description='File upload manager and picker for Django admin',
     author='Carl Meyer',
     author_email='carl@oddbird.net',
@@ -27,6 +27,7 @@ setup(
     ],
     zip_safe=False,
     test_suite='tests.runtests.runtests',
+    install_requires=['Django>=1.11'],
     package_data={'adminfiles': ['static/adminfiles/*.*',
                                  'static/adminfiles/mimetypes/*.png',
                                  'templates/adminfiles/render/*.html',

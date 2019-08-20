@@ -120,8 +120,8 @@ class FileUploadReference(models.Model):
     Tracks which ``FileUpload``s are referenced by which content models.
 
     """
-    upload = models.ForeignKey(FileUpload)
-    content_type = models.ForeignKey(ContentType)
+    upload = models.ForeignKey(FileUpload, on_delete=models.CASCADE)
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey('content_type', 'object_id')
 
